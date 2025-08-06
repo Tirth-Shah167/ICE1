@@ -5,25 +5,46 @@
 package ice1;
 
 /**
- *
+ * 
  * @author HP
+ * @modifier Tirth Shah  // Add your name as modifier
+ * @studentID 991752192 // Add your student number
  */
 public class CardTrick {
     
-    public static void main(String[] args)
-    {
-        Card[] magicHand = new Card[7];
+    public static void main(String[] args) {
+        Card[] allCards = new Card[7];
         
-        for (int i=0; i<magicHand.length; i++)
-        {
+        for (int i = 0; i < allCards.length; i++) {
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            c.setValue((int)(Math.random() * 13) + 1);
+            c.setSuit(Card.SUITS[(int)(Math.random() * 4)]);
+            allCards[i] = c;
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
+        Card yourCard = new Card();
+        yourCard.setValue(9); 
+        yourCard.setSuit("Spades"); 
+        
+        boolean found = false;
+        for (Card card : allCards) {
+            if (card.getValue() == yourCard.getValue() && 
+                card.getSuit().equals(yourCard.getSuit())) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (found) {
+            System.out.println("Congratulations! You Won....");
+        } else {
+            System.out.println("Sorry! Beter luck next time....");
+        }
+        
+        System.out.println("\nLucky cards are:");
+        for (Card card : allCards) {
+            System.out.println(card.getValue() + " of " + card.getSuit());
+        }
+        System.out.println("Your Card: " + yourCard.getValue() + " of " + yourCard.getSuit());
     }
-    
 }
