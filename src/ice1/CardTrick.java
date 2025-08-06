@@ -23,8 +23,8 @@ public class CardTrick {
         }
         
         Card yourCard = new Card();
-        yourCard.setValue(9); 
-        yourCard.setSuit("Spades"); 
+        yourCard.setValue(4); 
+        yourCard.setSuit("hearts"); 
         
         boolean found = false;
         for (Card card : allCards) {
